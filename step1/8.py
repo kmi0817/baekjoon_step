@@ -1,0 +1,14 @@
+try :
+    ab_list = input().split(" ")
+    A = int(ab_list[0])
+    B = int(ab_list[1])
+except :
+    print("정수를 입력하세요")
+
+try :
+    if A > 0 and B < 10 :
+        print(A / B)
+except ZeroDivisionError :
+    print("0으로 나눌 수 없습니다.")
+except :
+    print("문제가 발생했습니다.")
