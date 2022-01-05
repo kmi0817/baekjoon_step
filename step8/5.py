@@ -7,6 +7,8 @@ for i in range(test_case) :
         exit()
 
     floor = n % h
+    if floor == 0 :
+        floor =n
     room = n // h + 1
 
     if room < 10 :
