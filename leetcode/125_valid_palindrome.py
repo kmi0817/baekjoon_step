@@ -8,7 +8,9 @@ class Solution:
                 s_list.append(char)
 
         is_palindrome = True
-        while True :
+        while len(s_list) > 1 :
+            if s_list.pop(0) != s_list.pop() :
+                return False
             try :
                 left_char = s_list.pop(0)
                 right_char = s_list.pop()
