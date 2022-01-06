@@ -1,7 +1,7 @@
 s = input().lower() # make lower
 s_list = []
 for char in s:
-    if char.isalpha() :
+    if char.isalnum() :
         s_list.append(char)
 print(s_list)
 is_palindrome = True
