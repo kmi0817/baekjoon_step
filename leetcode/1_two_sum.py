@@ -1,4 +1,14 @@
-# 1) two for (runtime: 2504ms, memory: 14.9MB)
+# 1) for and in (list) (runtime: 965ms, 14.9MB)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i, a in enumerate(nums) :
+            # a + b = target
+            b = target - a
+            
+            if b in nums and nums.index(b) != i :
+                return [i, nums.index(b)]
+
+# 2) two for (runtime: 2504ms, memory: 14.9MB)
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)) :
@@ -9,7 +19,7 @@ class Solution:
                 if nums[j] == b :
                     return [i, j]
 
-# 2) for and while (runtime: 9366ms, memory: 14.9MB)               
+# 3) for and while (runtime: 9366ms, memory: 14.9MB)               
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         ret_list = []
