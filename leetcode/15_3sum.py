@@ -1,14 +1,14 @@
-nums = [-1,0,1,2,-1,-4]
-if not nums or len(nums) < 3 :
-    print([])
-    exit()
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if not nums or len(nums) < 3 :
+            return []
 
-ret_set = set()
-for i, a in enumerate(nums) :
-    for j, b in enumerate(nums[i+1:]) :
-        print(f'nums[i+1]: {nums[i+1:]}, a = {a}, b = {b}')
-        temp_c = 0 - (a+b)
-        if temp_c in nums[i+j+2:] :
-            print(f'nums[i+j+2]: {nums[i+j+2:]}, c = {temp_c}')
-            ret_set.add((a, b, temp_c))
-print(list(ret_set))
+        ret_list = []
+        for i, a in enumerate(nums) :
+            for j, b in enumerate(nums[i+1:]) :
+                temp_c = 0 - (a+b)
+                if temp_c in nums[i+j+2:] :
+                    triplet = sorted([a, b, temp_c])
+                    if triplet not in ret_list :
+                        ret_list.append(triplet)
+        return ret_list
