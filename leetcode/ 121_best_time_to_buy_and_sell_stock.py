@@ -1,16 +1,10 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         max_profit = 0
-        for i, price_i in enumerate(prices) :
-            if i == len(prices) - 1 :
-                break
+        for i, price in enumerate(prices) :
+            bigger_than_price = [x for x in prices[i+1:] if x > price]
             
-            for j, price_j in enumerate(prices[i+1:]) :
-                profit = price_j - price_i
+            if bigger_than_price and max_profit < max(bigger_than_price) - price :
+                max_profit = max(bigger_than_price) - price
                 
-                if profit < 0 :
-                    break
-                elif max_profit < profit :
-                    max_profit = profit
-                    
         return max_profit
