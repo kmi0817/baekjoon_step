@@ -13,21 +13,19 @@ print(votes)
 print()
 
 ranks = [ 0 for i in range(n)]
-former_max = -1
+former_max_value = -1
 former_rank = -1
-for rank in range(1, n+1) :
-  max_element = max(votes)
-  max_index = votes.index(max_element)
-  votes.pop(max_index)
+for i in range(1, n+1) :
+  max_value = max(votes)
 
-  if max_element == former_max :
-    ranks[max_index] = former_rank
+  if max_value == former_max_value :
+    ranks[votes.index(max_value)] = former_rank
   else :
-    ranks[max_index] = rank
-  print(f"current max: {max_element}({max_index}), rank: {ranks[max_index]} & foremr max: {former_max}({former_rank})")
-  print(votes)
-  print()
-  former_max = max_element
-  former_rank = rank
+    ranks[votes.index(max_value)] = i
+    former_max_value = max_value
+    former_rank = i
+    
+  votes.remove(max_value)
 
+    
 print(f"ranks: {ranks}")
