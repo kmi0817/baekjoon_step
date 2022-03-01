@@ -26,4 +26,5 @@ for i in range(1, n+1) :
   votes[votes.index(max_value)] = -1
 
     
-print(ranks)
+for rank in ranks :
+  print(rank, end=" ")
