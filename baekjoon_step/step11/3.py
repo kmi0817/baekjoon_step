@@ -9,8 +9,6 @@ for i, x in enumerate(data) :
   for y in data[i+1:] :
     if x[0] >= y[0] and x[1] >= y[1] :
       votes[i] += 1
-print(votes)
-print()
 
 ranks = [ 0 for i in range(n)]
 former_max_value = -1
@@ -25,7 +23,7 @@ for i in range(1, n+1) :
     former_max_value = max_value
     former_rank = i
     
-  votes.remove(max_value)
+  votes[votes.index(max_value)] = -1
 
     
-print(f"ranks: {ranks}")
+print(ranks)
