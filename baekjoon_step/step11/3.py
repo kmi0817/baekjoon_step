@@ -26,5 +26,8 @@ for i in range(1, n+1) :
   votes[votes.index(max_value)] = -1
 
     
-for rank in ranks :
-  print(rank, end=" ")
+for i, rank in enumerate(ranks) :
+  if i == len(ranks) - 1 :
+    print(rank)
+  else :
+    print(rank, end=" ")
