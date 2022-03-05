@@ -10,6 +10,8 @@ while M > 0 :
         sum_result += Ns[0]
         M -= 1
     
+    if M == 0 : break
+    
     sum_result += Ns[1]
     M -= 1
 
