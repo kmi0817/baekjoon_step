@@ -1,3 +1,21 @@
+# more refined solution
+start = input()
+col = ord(start[0]) - ord("a") + 1 # reduce 2 lines to 1 line
+row = int(start[1])
+
+steps = [ (2, 1), (2, -1), (-2, 1), (-2, -1), (1, 2), (1, -2), (-1, 2), (-1, -2) ]
+cnt = 0
+for step in steps :
+    c = col + step[0]
+    r = row + step[1]
+
+    if c in range(1, 9) and r in range(1, 9) :
+        print(c, r)
+        cnt += 1
+
+print(cnt)
+
+# my solution
 starting_point = input()
 
 cols = "abcdefgh"
