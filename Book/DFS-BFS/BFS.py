@@ -1,8 +1,23 @@
 from collections import deque
 
+# normal function
+def bfs(graph, v, visited) :
+    qu = deque([v])
+    visited[v] = True
+
+    while qu :
+        node = qu.popleft()
+        print(node, end=" ")
+        for n in graph[node] :
+            if not visited[n] :
+                qu.append(n)
+                visited[n] = True
+
+
+# recursive function
 global queue
 queue = deque()
-def bfs(graph, v, visited) :
+def bfs_recursive(graph, v, visited_) :
     visited[v] = True
     print(v, end=" ")
 
@@ -12,7 +27,7 @@ def bfs(graph, v, visited) :
             visited[node] = True
 
     try :
-        bfs(graph, queue.popleft(), visited)
+        bfs_recursive(graph, queue.popleft(), visited)
     except IndexError :
         pass
 
@@ -30,4 +45,7 @@ graph = [
 
 visited = [False for _ in range(9)]
 
+# Both codes must not be executed together
+# Just run it one by one!
 bfs(graph, 1, visited)
+bfs_recursive(graph, 1, visited)
