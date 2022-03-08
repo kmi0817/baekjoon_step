@@ -9,11 +9,24 @@ for _ in range(N) :
         temp.append(int(r))
     graph.append(temp)
 
-def dfs(graph, v, visited, M) :
-    visited[v] = True
+def dfs(x, y) :
+    if x <= -1 or x >= N or y <=-1 or y >= M :
+        return False
 
-    for u in range(M) :
-        if graph[v][u] == 0 and not visited[v*M + u] :
-            visited[v*M + u] = True
+    if graph[x][y] == 0 :
+        graph[x][y] = 1 # 방문 처리
 
-visited = [False for _ in range(N * M)]
+        dfs(x-1, y)
+        dfs(x+1, y)
+        dfs(x, y-1)
+        dfs(x, y+1)
+        return True
+    else :
+        return False
+
+result = 0
+for r in range(N) :
+    for c in range(M) :
+        if dfs(r, c) :
+            result += 1
+print(result)
