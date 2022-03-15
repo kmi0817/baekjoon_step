@@ -1,0 +1,11 @@
+n = int(input())
+
+array = []
+for _ in range(n) :
+  name, score = input().split()
+  array.append((name, int(score)))
+
+array.sort(key= lambda data : data[1])
+
+for el in array :
+  print(el[0], end=" ")
