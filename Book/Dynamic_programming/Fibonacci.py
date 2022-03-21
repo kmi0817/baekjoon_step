@@ -1,4 +1,17 @@
-# Dynamic Programming
+# loop (bottom-up)
+n = 11 # try to find f(11), the 11th fibonacci value
+cnt = 1
+result = 0
+first, second = 1, 1
+while cnt <= n - 2: # subtract 2 from n because f(1), f(2) is already included
+    result = first + second
+    print(f"first: {first}, second: {second}, result: {result}")
+    first, second = second, result
+    cnt += 1
+
+print(result)
+
+# Dynamic Programming (top-down)
 def dynamic_fibo(n) :
     if n <= 2 :
         return 1
