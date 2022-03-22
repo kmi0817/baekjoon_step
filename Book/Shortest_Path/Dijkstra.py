@@ -9,8 +9,6 @@ start = int(input())
 graph = [[] for i in range(n+1)]
 visited = [ False for i in range(n+1)]
 distance = [ INF for i in range(n+1)]
-visited[start] = True
-distance[start] = 0
 
 # graph input
 for i in range(1, m+1) :
@@ -28,17 +26,26 @@ def unvisited_shortest_node() :
     
     return index
 
-def dijkstra() :
+def dijkstra(start) :
+    visited[start] = True
+    distance[start] = 0
+
+    for x in graph[start] :
+        distance[x[0]] = x[1]
+
     for _ in range(n-1) :
         v = unvisited_shortest_node()
-
+        # print(f"v: {v}")
         for x in graph[v] :
             u, d = x[0], x[1]
             
             if distance[v] + d < distance[u] :
+                # print(f"distance[{u}] was {distance[u]}", end=" ")
                 distance[u] = distance[v] + d
+                # print(f"but now, it's {distance[u]}")
+        visited[v] = True
 
-dijkstra() # excecute
+dijkstra(start) # excecute
 
 for d in distance[1:] :
     print(d)
