@@ -1,13 +1,9 @@
-def fibo(n) :
-    left, right = 0, 1
-    cnt = 2
-    result = 0
-    while cnt <= n :
-        result = left + right
-        left, right = right, result
-        cnt += 1
-    
-    return result
+def fibo(n, left, right) :
+    if n <= 1 :
+        print(right)
+        return
+
+    fibo(n-1, right, left+right)
 
 n = int(input())
-print(fibo(n))
+fibo(n, 0, 1)
