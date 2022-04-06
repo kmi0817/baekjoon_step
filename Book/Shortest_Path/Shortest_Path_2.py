@@ -1,39 +1,31 @@
-import heapq
 import sys
 input = sys.stdin.readline
 INF = int(1e9)
 
 n, m = map(int, input().split())
 
-graph = [ [] for _ in range(n+1) ]
+distance = [ [INF] * (n+1) for _ in range(n+1) ]
 
 for _ in range(m) :
-    v, u = map(int, input().split())
-    graph[v].append(u)
+    x, y = map(int, input().split())
+    distance[x][y] = 1
+    distance[y][x] = 1
 
 x, k = map(int, input().split())
 
-# dijkstra
-def dijkstra(start, target) :
-    distance = [INF] * (n+1)
+# floyd warshall
+for i in range(1, n+1) :
 
-    q = []
-    heapq.heappush(q, (0, start))
-    distance[start] = 0
+    for k in range(1, n+1) :
+        for l in range(1, n+1) :
+            distance[k][l] = min(distance[k][l], distance[k][i] + distance[i][l])
 
-    while q :
-        dist, now = heapq.heappop(q)
+for row in distance :
+    for col in row :
+        print(col, end=" ")
+    print()
 
-        if distance[now] < dist :
-            continue
-
-        for i in graph[now] :
-            distance[i] = min(distance[i], distance[now] + 1)
-            heapq.heappush(q, (distance[i], i))
-
-    return distance[target]
-
-a = dijkstra(1, x)
-b = dijkstra(x, k)
-
-print(a+b)
+if distance[1][k] < INF and distance[k][x] :
+    print(distance[1][k] + distance[k][l])
+else :
+    print(-1)
