@@ -33,12 +33,10 @@ dijkstra(c)
 # avaiable city count and total time
 max_value = -1
 city_cnt = 0
-for i, d in enumerate(distance[1:]) :
+for d in distance[1:] :
     if d != INF :
-        if i != c :
-            city_cnt += 1
-        if max_value < d :
-            max_value = d
+        city_cnt += 1
+        max_value = max(max_value, d)
 
 # print the result
-print(city_cnt, max_value)
+print(city_cnt - 1, max_value)
