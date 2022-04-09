@@ -20,7 +20,14 @@ def find_root(node, root) :
     
     return node
 
-for n in range(1, v+1) :
-    parents[n] = find_root(n, parents[n])
+# 부모 테이블 출력
+print("부모 테이블:", end=" ")
+for n in parents[1:] :
+    print(n, end=" ")
 
-print(parents[1:])
+print()
+
+# 각 원소가 속한 집합
+print("각 원소가 속한 집합:", end=" ")
+for n in range(1, v+1) :
+    print(find_root(n, parents[n]), end=" ")
