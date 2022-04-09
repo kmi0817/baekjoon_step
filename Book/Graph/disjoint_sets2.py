@@ -5,8 +5,8 @@ input = sys.stdin.readline
 
 def find_parent(parent, node) :
     if parent[node] != node :
-        return find_parent(parent, parent[node])
-    return node
+        parent[node] = find_parent(parent, parent[node])
+    return parent[node]
 
 def union(parent, a, b) :
     child = max(parent[a], parent[b])
