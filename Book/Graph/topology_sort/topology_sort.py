@@ -16,9 +16,15 @@ for _ in range(e) :
 
 print(depth)
 
-def topology_sort(start) :
+def topology_sort() :
     q = deque()
-    q.append(start)
+
+    for i, d in enumerate(depth) :
+        if i == 0 :
+            continue
+
+        if d == 0 :
+            q.append(i)
 
     while q :
         x = q.popleft()
@@ -30,4 +36,5 @@ def topology_sort(start) :
                 if depth[y] == 0 :
                     q.append(y)
 
-topology_sort(1)
+# 실행
+topology_sort()
