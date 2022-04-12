@@ -14,10 +14,15 @@ n, m = map(int, input().split())
 parent = [ i for i in range(n+1) ]
 edges = []
 
-cost = []
 for _ in range(m) :
     a, b, d = map(int, input().split())
+    edges.append((d, a, b))
 
+edges.sort()
+
+cost = []
+for edge in edges :
+    d, a, b = edge
     if parent[a] != parent[b] :
         union(a, b)
         cost.append(d)
