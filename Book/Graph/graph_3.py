@@ -23,7 +23,7 @@ edges.sort()
 cost = []
 for edge in edges :
     d, a, b = edge
-    if parent[a] != parent[b] :
+    if find_root(parent[a]) != find_root(parent[b]) :
         union(a, b)
         cost.append(d)
     
