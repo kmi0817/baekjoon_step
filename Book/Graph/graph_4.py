@@ -10,7 +10,7 @@ graph = [ [] for _ in range(n+1) ]
 indegree = [0] * (n+1)
 
 # 입력
-for i in range(n) :
+for i in range(1, n+1) :
     data = list(map(int, input().split()))
 
     hours[i] = data[0]
@@ -31,9 +31,9 @@ def topology_sort() :
         now = q.popleft()
 
         for node in graph[now] :
-            result[node] = max(result[node], result[now] + hours[i])
+            result[node] = max(result[node], result[now] + hours[node])
             indegree[node] -= 1
-            if indegree == 0 :
+            if indegree[node] == 0 :
                 q.append(node)
 
     # 출력
