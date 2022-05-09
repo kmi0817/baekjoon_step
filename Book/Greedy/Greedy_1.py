@@ -1,3 +1,18 @@
+# review (2022-05-09)
+n, m, k = map(int, input().split())
+numbers = list(map(int, input().split()))
+numbers.sort(reverse=True)  # 내림차순 정렬
+
+first, second = numbers[0], numbers[1]  # 가장 큰 수 2개만 뽑아냄
+
+# m = 8, k = 3이라고 가정
+first_cnt = k * (m // k) # 가장 큰 수의 카운트 횟수 ex) 가장 큰 수는 3 * (8 // 3) = 6번 더해진다
+second_cnt = m % k # 두 번째로 큰 수의 카운트 횟수 ex) 두 번째로 큰 수는 8 % 3 = 2번 더해진다
+
+answer = (first * first_cnt) + (second * second_cnt)
+
+print(answer)
+
 # better solution
 N, M, K = map(int, input().split())
 Ns = list(map(int, input().split()))
