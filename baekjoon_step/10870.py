@@ -1,9 +1,10 @@
-def fibo(n, left, right) :
-    if n <= 1 :
-        print(right)
-        return
+def recursive(k) :
+  if k < 2:
+    return k
 
-    fibo(n-1, right, left+right)
-
+  return recursive(k-1) + recursive(k-2)
+  
 n = int(input())
-fibo(n, 0, 1)
+
+answer = recursive(n)
+print(answer)
