@@ -1,3 +1,15 @@
+# review (2022-11-15)
+n, m, k = map(int, input().split())
+data = list(map(int, input().split()))
+
+data.sort(reverse=True) # 리스트 내림차순 정렬
+max1, max2 = data[0], data[1]
+
+x = max1 * k + max2 # 반복되는 수열
+
+answer = (m // (k+1)) * x + (m % (k+1)) * max1
+print(answer)
+
 # review (2022-05-09)
 n, m, k = map(int, input().split())
 numbers = list(map(int, input().split()))
