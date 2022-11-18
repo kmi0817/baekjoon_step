@@ -1,11 +1,18 @@
+import sys
+
 n = int(input())
 data = []
 for _ in range(n) :
-    data.append(int(input()))
+    data.append(int(sys.stdin.readline()))
 
 data.sort()
 
-unhappy = [abs(x - (i+1)) for i, x in enumerate(data) ]
+# List Comprehension 대신 아래 코드도 가능
+# answer = 0
+# for i, x in enumerate(data) :
+#   answer += abs(x - (i+1))
 
+unhappy = [abs(x - (i+1)) for i, x in enumerate(data) ]
 answer = sum(unhappy)
+
 print(answer)
