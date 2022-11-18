@@ -9,7 +9,7 @@ ropes.sort() # 오름차순 정렬
 each_max = [x * (len(ropes) - i) for i, x in enumerate(ropes) ]
 # Ex) ropes == [4, 5, 6, 7]일 때, each_max == [4*4, 5*3, 6*2, 7*1]
 # 중량 4는 4개의 로프가 들어올릴 수 있으므로, each_max[0] = 16
-# 중량 5는 5개의 로프가 들어올릴 수 있으므로, each_max[1] = 15
+# 중량 5는 3개의 로프가 들어올릴 수 있으므로, each_max[1] = 15
 
 answer = max(each_max)
 print(answer)
